@@ -1,16 +1,16 @@
-import { useState, useRef } from 'react';
+import { useRef } from 'react';
 import { Event } from '../types';
 import html2canvas from 'html2canvas';
 
 interface TicketModalProps {
   event: Event;
   onClose: () => void;
-  darkMode: boolean;
+  darkMode?: boolean;
   ticketQuantity?: number;
   attendeeName?: string;
 }
 
-export default function TicketModal({ event, onClose, darkMode, ticketQuantity = 1, attendeeName = 'Guest' }: TicketModalProps) {
+export default function TicketModal({ event, onClose, ticketQuantity = 1, attendeeName = 'Guest' }: TicketModalProps) {
   const ticketRef = useRef<HTMLDivElement>(null);
   
   const eventDate = new Date(event.date);
